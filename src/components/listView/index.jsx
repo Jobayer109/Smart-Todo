@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Button, CustomInput, ListGroup, ListGroupItem } from "reactstrap";
+import { Button, Input, ListGroup, ListGroupItem } from "reactstrap";
 
 const ListItem = ({ todo, toggleSelect, toggleComplete }) => {
   const { id, text, time, description, isComplete, isSelect } = todo;
   return (
-    <ListGroupItem className="d-flex align-items-center">
-      <CustomInput
+    <ListGroupItem className="d-flex align-items-center justify-content-between fs-5 fw-normal">
+      <Input
         type="checkbox"
         id={id}
         checked={isSelect}
@@ -14,7 +14,7 @@ const ListItem = ({ todo, toggleSelect, toggleComplete }) => {
       />
       <div>
         <h5>{text}</h5>
-        <p>{description}</p>
+        {/* <p>{description}</p> */}
         <p>{time.toDateString()}</p>
       </div>
 
@@ -51,7 +51,7 @@ const ListView = ({ todos, toggleSelect, toggleComplete }) => {
 };
 
 ListView.propTypes = {
-  todo: PropTypes.object.isRequired,
+  todos: PropTypes.array.isRequired,
   toggleSelect: PropTypes.func.isRequired,
   toggleComplete: PropTypes.func.isRequired,
 };
