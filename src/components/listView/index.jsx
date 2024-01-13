@@ -15,7 +15,7 @@ const ListItem = ({ todo, toggleSelect, toggleComplete }) => {
       <div>
         <h5>{text}</h5>
         {/* <p>{description}</p> */}
-        <p>{time.toDateString()}</p>
+        <span className="fs-6 fst-italic">{time.toDateString()}</span>
       </div>
 
       <Button
@@ -37,7 +37,7 @@ ListItem.propTypes = {
 
 const ListView = ({ todos, toggleSelect, toggleComplete }) => {
   return (
-    <ListGroup>
+    <ListGroup className="w-75 text-center m-auto">
       {todos.map((todo) => (
         <ListItem
           key={todo.id}

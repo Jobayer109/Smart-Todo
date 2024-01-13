@@ -19,7 +19,7 @@ const RawItem = ({ todo, toggleSelect, toggleComplete }) => {
         {text} <br />
         {/* {description} */}
       </td>
-      <td>{time.toDateString()}</td>
+      <td className="fs-6 fst-italic">{time.toDateString()}</td>
       <td>
         <Button
           className="ml-auto"
@@ -41,7 +41,7 @@ RawItem.propTypes = {
 
 const TableView = ({ todos, toggleSelect, toggleComplete }) => {
   return (
-    <Table>
+    <Table className="w-75 m-auto">
       <thead className="fs-5">
         <tr>
           <th>#</th>

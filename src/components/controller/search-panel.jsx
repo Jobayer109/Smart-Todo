@@ -4,8 +4,9 @@ import { Button, Input } from "reactstrap";
 
 const SearchPanel = ({ term, handleSearch, toggleForm }) => {
   return (
-    <div className="d-flex my-2">
+    <div className="d-flex my-2 w-75 m-auto">
       <Input
+        className="me-2"
         type="text"
         value={term}
         placeholder="Search your task"
