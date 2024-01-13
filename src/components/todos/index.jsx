@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Controller from "../controller";
 import ListView from "../listView";
 import TableView from "../tableView";
 
@@ -28,21 +29,22 @@ class Todo extends Component {
   render() {
     return (
       <div>
-        <h1 className="display- fw-semibold text-center mb-5">
-          Smart Todo
-          <div>
-            <ListView
-              todos={this.state}
-              toggleComplete={this.toggleComplete}
-              toggleSelect={this.toggleSelect}
-            />
-            <TableView
-              todos={this.state}
-              toggleComplete={this.toggleComplete}
-              toggleSelect={this.toggleSelect}
-            />
-          </div>
-        </h1>
+        <h1 className="display- fw-semibold text-center mb-5">Smart Todo </h1>
+        <div>
+          <Controller />
+        </div>
+        <div>
+          <ListView
+            todos={this.state}
+            toggleComplete={this.toggleComplete}
+            toggleSelect={this.toggleSelect}
+          />
+          <TableView
+            todos={this.state}
+            toggleComplete={this.toggleComplete}
+            toggleSelect={this.toggleSelect}
+          />
+        </div>
       </div>
     );
   }

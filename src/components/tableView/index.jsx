@@ -8,12 +8,13 @@ const RawItem = ({ todo, toggleSelect, toggleComplete }) => {
     <tr>
       <td>
         <Input
-          type="checkBox"
+          type="checkbox"
           id={id}
           checked={isSelect}
           onChange={() => toggleSelect(id)}
         />
       </td>
+
       <td>
         {text} <br />
         {/* {description} */}
