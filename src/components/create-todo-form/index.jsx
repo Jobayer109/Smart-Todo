@@ -7,7 +7,6 @@ class CreateTodoForm extends Component {
     text: "",
     description: "",
   };
-
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
+import shortid from "shortid";
 import Controller from "../controller";
 import CreateTodoForm from "../create-todo-form";
 import ListView from "../listView";
@@ -9,7 +10,7 @@ class Todo extends Component {
   state = {
     todos: [
       {
-        id: "bfdjdjf",
+        id: shortid.generate(),
         text: "Wake up",
         description: "Early to bed and early rise",
         time: new Date(),
@@ -17,7 +18,7 @@ class Todo extends Component {
         isSelect: false,
       },
       {
-        id: "bfdsffjdjf",
+        id: shortid.generate(),
         text: "Open school door",
         description: "I love go to school",
         time: new Date(),
@@ -30,9 +31,9 @@ class Todo extends Component {
     searchTerm: "",
   };
 
-  toggleSelect = () => {};
+  toggleSelect = (todoId) => {};
 
-  toggleComplete = () => {};
+  toggleComplete = (todoId) => {};
 
   handleSearch = () => {};
 
@@ -42,12 +43,22 @@ class Todo extends Component {
     });
   };
 
-  createTodo = () => {};
+  createTodo = (todo) => {
+    todo.id = shortid.generate();
+    todo.time = new Date();
+    todo.isComplete = false;
+    todo.isSelect = false;
+
+    const todos = [todo, ...this.state.todos];
+    this.setState({ todos });
+    this.toggleForm();
+    console.log(todo);
+  };
 
   render() {
     return (
       <div>
-        <h1 className="fw-normal text-center mb-5">Smart Todo </h1>
+        <h1 className="fw-normal text-center mb-5">Smart Todo</h1>
         <div>
           <Controller
             term={this.state.searchTerm}
