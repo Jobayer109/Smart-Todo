@@ -31,9 +31,21 @@ class Todo extends Component {
     searchTerm: "",
   };
 
-  toggleSelect = (todoId) => {};
+  toggleSelect = (todoId) => {
+    const todos = [...this.state.todos];
+    const todo = todos.find((t) => t.id === todoId);
+    todo.isSelect = !todo.isSelect;
 
-  toggleComplete = (todoId) => {};
+    this.setState({ todos });
+  };
+
+  toggleComplete = (todoId) => {
+    const todos = [...this.state.todos];
+    const todo = todos.find((t) => t.id === todoId);
+    todo.isComplete = !todo.isComplete;
+
+    this.setState({ todos });
+  };
 
   handleSearch = () => {};
 
