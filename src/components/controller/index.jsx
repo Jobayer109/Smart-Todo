@@ -19,7 +19,7 @@ const Controller = ({
   reset,
 }) => {
   return (
-    <div className="w-75 m-auto">
+    <div className=" m-auto">
       <SearchPanel
         term={term}
         handleSearch={handleSearch}

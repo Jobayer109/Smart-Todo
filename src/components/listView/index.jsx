@@ -5,21 +5,24 @@ import { Button, Input, ListGroup, ListGroupItem } from "reactstrap";
 const ListItem = ({ todo, toggleSelect, toggleComplete }) => {
   const { id, text, time, description, isComplete, isSelect } = todo;
   return (
-    <ListGroupItem className="d-flex align-items-center justify-content-between fs-5 fw-normal">
-      <Input
-        type="checkbox"
-        id={id}
-        checked={isSelect}
-        onChange={() => toggleSelect(id)}
-      />
-      <div>
-        <h5>{text}</h5>
-        {/* <p>{description}</p> */}
-        <span className="fs-6 fst-italic">{time.toDateString()}</span>
+    <ListGroupItem className="d-flex align-items-center justify-content-between">
+      <div className="d-flex">
+        <Input
+          className="me-5"
+          type="checkbox"
+          id={id}
+          checked={isSelect}
+          onChange={() => toggleSelect(id)}
+        />
+        <div>
+          <h5>{text}</h5>
+          {/* <p>{description}</p> */}
+          <span className="fs-6 fst-italic">{time.toDateString()}</span>
+        </div>
       </div>
 
       <Button
-        className="ml-auto"
+        className=""
         onClick={() => toggleComplete(id)}
         color={isComplete ? "danger" : "success"}
       >
@@ -37,7 +40,7 @@ ListItem.propTypes = {
 
 const ListView = ({ todos, toggleSelect, toggleComplete }) => {
   return (
-    <ListGroup className="w-75 text-center m-auto">
+    <ListGroup className="text-center m-auto">
       {todos.map((todo) => (
         <ListItem
           key={todo.id}

@@ -48,7 +48,9 @@ class Todo extends Component {
     this.setState({ todos });
   };
 
-  handleSearch = () => {};
+  handleSearch = (value) => {
+    this.setState({ searchTerm: value });
+  };
 
   toggleForm = () => {
     this.setState({
@@ -65,10 +67,10 @@ class Todo extends Component {
     const todos = [todo, ...this.state.todos];
     this.setState({ todos });
     this.toggleForm();
-    console.log(todo);
   };
 
   handleFilter = () => {};
+
   changeView = (event) => {
     this.setState({
       view: event.target.value,
@@ -78,16 +80,23 @@ class Todo extends Component {
   clearCompleted = () => {};
   reset = () => {};
 
+  performSearch = () => {
+    return this.state.todos.filter((t) =>
+      t.text.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+    );
+  };
+
   getView = () => {
+    let todos = this.performSearch();
     return this.state.view === "list" ? (
       <ListView
-        todos={this.state.todos}
+        todos={todos}
         toggleComplete={this.toggleComplete}
         toggleSelect={this.toggleSelect}
       />
     ) : (
       <TableView
-        todos={this.state.todos}
+        todos={todos}
         toggleComplete={this.toggleComplete}
         toggleSelect={this.toggleSelect}
       />

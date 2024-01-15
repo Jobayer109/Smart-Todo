@@ -19,10 +19,10 @@ const RawItem = ({ todo, toggleSelect, toggleComplete }) => {
         {text} <br />
         {/* {description} */}
       </td>
-      <td className="fs-6 fst-italic">{time.toDateString()}</td>
+      <td className="fst-italic">{time.toDateString()}</td>
       <td>
         <Button
-          className="ml-auto"
+          className=" w-50 m-auto"
           onClick={() => toggleComplete(id)}
           color={isComplete ? "danger" : "success"}
         >
@@ -41,8 +41,8 @@ RawItem.propTypes = {
 
 const TableView = ({ todos, toggleSelect, toggleComplete }) => {
   return (
-    <Table className="w-75 m-auto">
-      <thead className="fs-5">
+    <Table className="text-center me-2">
+      <thead>
         <tr>
           <th>#</th>
           <th>Task name</th>
@@ -50,9 +50,10 @@ const TableView = ({ todos, toggleSelect, toggleComplete }) => {
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody className="fs-5 fw-normal">
+      <tbody>
         {todos.map((todo) => (
           <RawItem
+            className=""
             key={todo.id}
             todo={todo}
             toggleSelect={toggleSelect}
