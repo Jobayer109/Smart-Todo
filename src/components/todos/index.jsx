@@ -25,6 +25,14 @@ class Todo extends Component {
         isComplete: false,
         isSelect: false,
       },
+      {
+        id: shortid.generate(),
+        text: "Last door",
+        description: "I love go to school",
+        time: new Date(),
+        isComplete: false,
+        isSelect: false,
+      },
     ],
 
     isOpenForm: false,
@@ -79,9 +87,24 @@ class Todo extends Component {
       view: event.target.value,
     });
   };
-  clearSelected = () => {};
-  clearCompleted = () => {};
-  reset = () => {};
+  clearSelected = () => {
+    const todos = this.state.todos.filter((todo) => !todo.isSelect);
+    this.setState({ todos });
+  };
+
+  clearCompleted = () => {
+    const todos = this.state.todos.filter((todo) => !todo.isComplete);
+    this.setState({ todos });
+  };
+
+  reset = () => {
+    this.setState({
+      isOpenForm: false,
+      searchTerm: "",
+      view: "list",
+      filter: "all",
+    });
+  };
 
   performSearch = () => {
     return this.state.todos.filter((t) =>

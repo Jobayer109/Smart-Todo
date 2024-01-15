@@ -8,18 +8,22 @@ const BulkController = ({ clearSelected, clearCompleted, reset }) => {
       <Button
         className="fs-xs text-center"
         color="danger"
-        onClick={() => clearSelected}
+        onClick={() => clearSelected()}
       >
         Clear selected
       </Button>
       <Button
         className="fs- text-center"
         color="danger"
-        onClick={() => clearCompleted}
+        onClick={() => clearCompleted()}
       >
         Clear Completed
       </Button>
-      <Button className="fs- text-center" color="danger" onClick={() => reset}>
+      <Button
+        className="fs- text-center"
+        color="danger"
+        onClick={() => reset()}
+      >
         Reset
       </Button>
     </ButtonGroup>
