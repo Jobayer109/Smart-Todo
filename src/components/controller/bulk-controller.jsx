@@ -5,9 +5,23 @@ import { Button, ButtonGroup } from "reactstrap";
 const BulkController = ({ clearSelected, clearCompleted, reset }) => {
   return (
     <ButtonGroup>
-      <Button onClick={() => clearSelected}>Clear selected</Button>
-      <Button onClick={() => clearCompleted}>Clear Completed</Button>
-      <Button onClick={() => reset}>Reset</Button>
+      <Button
+        className="fs-xs text-center"
+        color="danger"
+        onClick={() => clearSelected}
+      >
+        Clear selected
+      </Button>
+      <Button
+        className="fs- text-center"
+        color="danger"
+        onClick={() => clearCompleted}
+      >
+        Clear Completed
+      </Button>
+      <Button className="fs- text-center" color="danger" onClick={() => reset}>
+        Reset
+      </Button>
     </ButtonGroup>
   );
 };

@@ -4,7 +4,7 @@ import { Button, Input } from "reactstrap";
 
 const SearchPanel = ({ term, handleSearch, toggleForm }) => {
   return (
-    <div className="d-flex my-2 w-75 m-auto">
+    <div className="d-flex my-2  m-auto">
       <Input
         className="me-2"
         type="text"

@@ -7,7 +7,7 @@ const ViewController = ({ view, changeView }) => {
     <div className="d-flex">
       <Label for="list-view" className="mr-4">
         <Input
-          className="d-inline-block"
+          className="d-inline-bloc "
           type="radio"
           name="view"
           value="list"
