@@ -30,6 +30,7 @@ class Todo extends Component {
     isOpenForm: false,
     searchTerm: "",
     view: "list",
+    filter: "all",
   };
 
   toggleSelect = (todoId) => {
@@ -69,7 +70,9 @@ class Todo extends Component {
     this.toggleForm();
   };
 
-  handleFilter = () => {};
+  handleFilter = (filter) => {
+    this.setState({ filter });
+  };
 
   changeView = (event) => {
     this.setState({
@@ -86,8 +89,20 @@ class Todo extends Component {
     );
   };
 
+  performFilter = (todos) => {
+    const { filter } = this.state;
+    if (filter === "completed") {
+      return todos.filter((todo) => todo.isComplete);
+    } else if (filter === "running") {
+      return todos.filter((todo) => !todo.isComplete);
+    } else {
+      return todos;
+    }
+  };
+
   getView = () => {
     let todos = this.performSearch();
+    todos = this.performFilter(todos);
     return this.state.view === "list" ? (
       <ListView
         todos={todos}
